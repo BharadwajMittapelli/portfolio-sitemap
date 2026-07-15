@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Technical Portfolio Sitemap - System architecture, asynchronous pipelines, security sandboxes, and agentic runtimes. Built for engineering leadership.">
+  <title>System Architect Portfolio | Portfolio Sitemap</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons (CSS version via CDN for ease of use) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/font/lucide.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="cyber-theme">
+  <!-- Scanline / Background overlay effects -->
+  <div class="scanlines"></div>
+  <div class="ambient-glow"></div>
+
+  <!-- Header & Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <span class="logo-prefix">SYS_MAP</span>
+        <span class="logo-divider">//</span>
+        <span class="logo-suffix">ARCH_V1.0</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#/" class="nav-item active" data-route="home">
+          <span class="nav-num">01/</span> LANDING
+        </a>
+        <a href="#/systems" class="nav-item" data-route="systems">
+          <span class="nav-num">02/</span> SYSTEMS
+        </a>
+        <a href="#/runtime" class="nav-item" data-route="runtime">
+          <span class="nav-num">03/</span> RUNTIME
+        </a>
+      </nav>
+      <div class="status-indicator">
+        <span class="pulse-dot"></span>
+        <span class="status-text">HOST: ACTIVE</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Viewport -->
+  <main id="app-viewport">
+    <div id="view-container">
+      <!-- Dynamic Views Injected Here -->
+    </div>
+  </main>
+
+  <!-- Scheduling Modal (Action Node) -->
+  <div id="scheduler-modal" class="modal-overlay hidden">
+    <div class="modal-card glass-panel">
+      <button class="modal-close-btn" id="close-modal-btn">
+        <i class="lucide-x"></i>
+      </button>
+      <div class="modal-header">
+        <div class="terminal-badge">ACTION NODE: SCHEDULER</div>
+        <h2>Request a 15-Minute System Review</h2>
+        <p class="modal-subtitle">Pick a time to review production architectures, pipeline designs, or security sandboxes.</p>
+      </div>
+      <form id="scheduler-form" class="modal-form">
+        <div class="form-group">
+          <label for="sched-name">Lead Engineer Name</label>
+          <input type="text" id="sched-name" required placeholder="e.g., Jane Doe, VP of Engineering">
+        </div>
+        <div class="form-group">
+          <label for="sched-email">Corporate Email</label>
+          <input type="email" id="sched-email" required placeholder="e.g., j.doe@enterprise.com">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="sched-date">Preferred Date</label>
+            <input type="date" id="sched-date" required>
+          </div>
+          <div class="form-group">
+            <label for="sched-time">Preferred Time slot</label>
+            <select id="sched-time" required>
+              <option value="" disabled selected>Select slot...</option>
+              <option value="10:00">10:00 AM (EST)</option>
+              <option value="11:30">11:30 AM (EST)</option>
+              <option value="14:00">02:00 PM (EST)</option>
+              <option value="16:00">04:00 PM (EST)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sched-topic">Primary System of Interest</label>
+          <select id="sched-topic" required>
+            <option value="general">All Architectures Overview</option>
+            <option value="crednpay">CrednPay (Financial Webhook Pipeline)</option>
+            <option value="codecheck">CodeCheck (Docker Security Sandbox)</option>
+            <option value="ecommerce">E-Commerce automations (Instagram/Graph API)</option>
+            <option value="agentforce">Salesforce Agentforce Boundaries</option>
+          </select>
+        </div>
+        <button type="submit" class="cyber-btn primary">
+          <span class="btn-text">INITIALIZE SYSTEM REVIEW</span>
+          <span class="btn-glow"></span>
+        </button>
+      </form>
+      <!-- Success State -->
+      <div id="scheduler-success" class="modal-success hidden">
+        <div class="success-icon-wrapper">
+          <i class="lucide-check-circle"></i>
+        </div>
+        <h3>Review Handshake Initialized</h3>
+        <p class="success-text">Calendar handshake complete. A configuration invite has been generated.</p>
+        <div class="terminal-receipt">
+          <div class="receipt-row"><span>REF_ID:</span> <span id="receipt-ref">SYS-8492-X</span></div>
+          <div class="receipt-row"><span>STATUS:</span> <span class="text-green">COMMITTED</span></div>
+          <div class="receipt-row"><span>CHANNEL:</span> <span id="receipt-email">...</span></div>
+          <div class="receipt-row"><span>TIMESTAMP:</span> <span id="receipt-time">...</span></div>
+        </div>
+        <button id="success-close-btn" class="cyber-btn secondary">CLOSE TERMINAL</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <span class="copyright">&copy; 2026 SYS_ARCH PORTFOLIO</span>
+        <span class="footer-separator">|</span>
+        <span class="academic-tag">IARE CSE ALUMNUS</span>
+      </div>
+      <div class="footer-center">
+        <div class="uptime-counter">
+          <span class="mini-pulse"></span>
+          <span>SYSTEM UPTIME: 99.998%</span>
+        </div>
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com" target="_blank" class="footer-link"><i class="lucide-github"></i> GitHub</a>
+        <a href="https://linkedin.com" target="_blank" class="footer-link"><i class="lucide-linkedin"></i> LinkedIn</a>
+        <a href="mailto:engineer@example.com" class="footer-link"><i class="lucide-mail"></i> Mail</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
